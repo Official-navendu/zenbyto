@@ -6,6 +6,7 @@ import Hero from '../components/sections/Hero'
 import StatsCounterSection from '../components/sections/StatsCounterSection'
 import AboutPreview from '../components/sections/AboutPreview'
 import Services from '../components/sections/Services'
+import PromoVideoSection from '../components/sections/PromoVideoSection'
 import WhyChooseUs from '../components/sections/WhyChooseUs'
 import MovingTypographySection from '../components/sections/MovingTypographySection'
 import PortfolioPreview from '../components/sections/PortfolioPreview'
@@ -75,6 +76,7 @@ export default function Home() {
         <StatsCounterSection />
         <AboutPreview />
         <Services />
+        <PromoVideoSection />
         <WhyChooseUs />
         <PortfolioPreview />
         <IndustriesWeServe />
