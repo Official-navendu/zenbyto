@@ -1,0 +1,15 @@
+{
+  "name": "Zenbyto Digital Marketing & SEO Agency",
+  "short_name": "Zenbyto",
+  "icons": [
+    {
+      "src": "/favicon.jpeg",
+      "sizes": "100x100",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#33387A",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

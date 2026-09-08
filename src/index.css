@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --color-primary: #33387A;
+  --color-primary-light: #4A50A3;
+  --color-accent: #FE8233;
+  --color-accent-light: #FFA166;
+  --color-brand-dark: #12142d;
+  --color-brand-gray: #4b5563;
+  --color-brand-light: #f9fafb;
+}
+
+/* Custom Reset & Scrollbar */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-brand-dark);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #33387A;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Premium Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #33387A 0%, #FE8233 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #33387A 0%, #4A50A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #FE8233 0%, #FFA166 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Premium Glassmorphism & Borders */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(51, 56, 122, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(51, 56, 122, 0.03);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(51, 56, 122, 0.06);
+}
+
+/* Global Section Spacing (Excluding Hero #home to prevent header overlap) */
+section:not(#home) {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  section:not(#home) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section:not(#home) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ThreeJS Canvas styling */
+.threejs-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Premium Brand Badges & Buttons */
+.glass-badge-orange {
+  background: rgba(254, 130, 51, 0.08) !important;
+  border: 1px solid rgba(254, 130, 51, 0.25) !important;
+  border-radius: 999px !important;
+  color: #FE8233 !important;
+}
+
+.glass-badge-blue {
+  background: rgba(51, 56, 122, 0.06) !important;
+  border: 1px solid rgba(51, 56, 122, 0.15) !important;
+  border-radius: 999px !important;
+  color: #33387A !important;
+}
+
+.glass-btn-primary {
+  background: #33387A !important;
+  border: 2px solid #33387A !important;
+  color: #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 15px rgba(51, 56, 122, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.glass-btn-primary:hover {
+  background: #FE8233 !important;
+  border-color: #FE8233 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(254, 130, 51, 0.25) !important;
+}
+
+.glass-btn-secondary {
+  background: #FE8233 !important;
+  border: 2px solid #FE8233 !important;
+  color: #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 15px rgba(254, 130, 51, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.glass-btn-secondary:hover {
+  background: #33387A !important;
+  border-color: #33387A !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(51, 56, 122, 0.25) !important;
+}
+
+/* Card Orbit Animations */
+@keyframes orbit-1 {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-12px) translateX(6px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes orbit-2 {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(12px) translateX(-6px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.animate-orbit-1 {
+  animation: orbit-1 6s ease-in-out infinite;
+}
+
+.animate-orbit-2 {
+  animation: orbit-2 8s ease-in-out infinite;
+}
+
+/* Border Shifting Animation */
+@keyframes border-glow-shift {
+  0% { border-color: rgba(51, 56, 122, 0.45); }
+  50% { border-color: rgba(254, 130, 51, 0.45); }
+  100% { border-color: rgba(51, 56, 122, 0.45); }
+}
+
+.animate-border-shift {
+  animation: border-glow-shift 4s linear infinite;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Premium Atmospheric Background Texture & Glow Utilities */
+.bg-atmosphere-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+.glow-orb-orange {
+  background: radial-gradient(circle, rgba(254, 130, 51, 0.045) 0%, rgba(254, 130, 51, 0) 70%);
+}
+
+.glow-orb-blue {
+  background: radial-gradient(circle, rgba(51, 56, 122, 0.04) 0%, rgba(51, 56, 122, 0) 70%);
+}
+
+.glow-orb-center {
+  background: radial-gradient(circle, rgba(254, 130, 51, 0.03) 0%, rgba(51, 56, 122, 0.03) 45%, rgba(0, 0, 0, 0) 75%);
+}
+
+
+
+
+

@@ -1,0 +1,23 @@
+- [x] Create and refine global dynamic CTA component (`src/components/sections/CTA.jsx`)
+- [x] Update Home page components:
+  - [x] `Hero.jsx`: Move right-side illustration down and add orange glow background
+  - [x] `AboutPreview.jsx`: Add collage hover zoom transitions and enable scroll animation replay
+  - [x] `Services.jsx` (Home): Card hover state (white text/icons) and premium redesign of active details panel
+  - [x] `WhyChooseUs.jsx`: Add blue glow and card hover state (white text/icons)
+- [x] Update Footer column layout (`src/components/layout/Footer.jsx`)
+- [x] Update page routes and add AI Automation service details:
+  - [x] Register new route mappings in `src/App.jsx`
+  - [x] Update database and icons in `src/pages/ServiceDetail.jsx`
+- [x] Create Dynamic Blog Detail pages:
+  - [x] Build `src/pages/BlogDetail.jsx` with full articles, sidebar, FAQs, related items, and schema/og metadata
+  - [x] Update post list cards in `src/pages/Blog.jsx` to route to details
+- [x] Integrate unified `<CTA />` component across all 8 pages:
+  - [x] `Home.jsx`
+  - [x] `About.jsx`
+  - [x] `Services.jsx`
+  - [x] `ServiceDetail.jsx`
+  - [x] `Portfolio.jsx`
+  - [x] `Blog.jsx`
+  - [x] `Contact.jsx`
+  - [x] `FreeConsultation.jsx`
+- [x] Final visual check on responsiveness and links
