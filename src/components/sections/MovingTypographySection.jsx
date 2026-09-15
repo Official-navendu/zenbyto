@@ -1,6 +1,6 @@
 import React from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
-import marqueeCenterWoman from '../../assets/homepage/marquee_center_woman.png'
+import { useReducedMotion } from 'framer-motion'
+import marqueeCenterWoman from '../../assets/markquee.png'
 
 export default function MovingTypographySection() {
   const shouldReduceMotion = useReducedMotion()
@@ -14,9 +14,9 @@ export default function MovingTypographySection() {
   const row2Items = Array(6).fill(row2Phrase)
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#33387A] bg-atmosphere-grain h-[clamp(240px,36vw,620px)] flex items-center justify-center select-none">
+    <section className="relative w-full overflow-hidden bg-[#33387A] bg-atmosphere-grain h-[clamp(210px,30vw,520px)] flex items-center justify-center select-none">
       
-      {/* 1. SEAMLESS INFINITE MARQUEE & FLOATING ANIMATIONS */}
+      {/* 1. SEAMLESS INFINITE MARQUEE & STABLE ANCHORED COMPOSITION */}
       <style>{`
         @keyframes marquee-right {
           0% { transform: translate3d(-50%, 0, 0); }
@@ -26,22 +26,15 @@ export default function MovingTypographySection() {
           0% { transform: translate3d(0, 0, 0); }
           100% { transform: translate3d(-50%, 0, 0); }
         }
-        @keyframes float-gentle {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
-        }
         @keyframes ambient-glow-pulse {
           0%, 100% { opacity: 0.6; transform: scale(1); }
           50% { opacity: 0.85; transform: scale(1.08); }
         }
         .animate-marquee-right {
-          animation: marquee-right 36s linear infinite;
+          animation: marquee-right 52s linear infinite;
         }
         .animate-marquee-left {
-          animation: marquee-left 36s linear infinite;
-        }
-        .animate-float-gentle {
-          animation: float-gentle 8s ease-in-out infinite;
+          animation: marquee-left 52s linear infinite;
         }
         .animate-glow-pulse {
           animation: ambient-glow-pulse 12s ease-in-out infinite;
@@ -49,7 +42,6 @@ export default function MovingTypographySection() {
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee-right,
           .animate-marquee-left,
-          .animate-float-gentle,
           .animate-glow-pulse {
             animation-play-state: paused !important;
           }
@@ -69,7 +61,7 @@ export default function MovingTypographySection() {
       <div className="absolute top-[65%] left-[22%] w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-[#FE8233]/30 blur-[1px] pointer-events-none z-0" />
 
       {/* 3. LAYER 1 (z-10): UPPER MARQUEE ROW — BEHIND CENTER PERSON (z-10 < z-20) */}
-      <div className="absolute top-[14%] sm:top-[18%] lg:top-[20%] left-0 w-full z-10 overflow-hidden pointer-events-none select-none whitespace-nowrap">
+      <div className="absolute top-[16%] sm:top-[18%] lg:top-[20%] left-0 w-full z-10 overflow-hidden pointer-events-none select-none whitespace-nowrap">
         <div className={`flex items-center gap-[clamp(16px,2.5vw,48px)] w-max ${shouldReduceMotion ? '' : 'animate-marquee-right'}`}>
           {[...row1Items, ...row1Items].map((text, idx) => (
             <span 
@@ -82,24 +74,24 @@ export default function MovingTypographySection() {
         </div>
       </div>
 
-      {/* 4. LAYER 2 (z-20): CENTER FOCAL PORTRAIT WITH GLOW & FLOATING ANIMATION (z-20) */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 pointer-events-none select-none flex justify-center items-end h-[90%] sm:h-[92%] max-h-[580px]">
+      {/* 4. LAYER 2 (z-20): STABLE ANCHORED CENTER FOCAL PORTRAIT WITH GLOW (z-20) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 pointer-events-none select-none flex justify-center items-end h-[96%] sm:h-[98%] max-h-[600px]">
         {/* Soft Orange Glow Behind Focal Person */}
         <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[85%] h-[60%] rounded-full bg-[#FE8233]/25 blur-xl sm:blur-2xl lg:blur-3xl pointer-events-none z-0" />
 
-        {/* Floating Center Woman Cutout Image */}
-        <div className={`relative z-10 w-[clamp(160px,26vw,420px)] h-full flex items-end justify-center ${shouldReduceMotion ? '' : 'animate-float-gentle'}`}>
+        {/* Stable Anchored Center Woman Cutout Image (~10% larger, zero jitter/crop) */}
+        <div className="relative z-10 w-[clamp(195px,32vw,510px)] h-full flex items-end justify-center">
           <img
             src={marqueeCenterWoman}
             alt="Zenbyto Digital Growth & Strategy"
-            className="w-full h-auto object-contain object-bottom drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)] lg:drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)]"
+            className="w-full h-auto object-contain object-bottom drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)] lg:drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] block"
             loading="eager"
           />
         </div>
       </div>
 
       {/* 5. LAYER 3 (z-10 on mobile, z-30 on desktop): LOWER MARQUEE ROW — BEHIND PERSON ON MOBILE, FRONT ON DESKTOP */}
-      <div className="absolute bottom-[12%] sm:bottom-[14%] lg:bottom-[16%] left-0 w-full z-10 md:z-30 overflow-hidden pointer-events-none select-none whitespace-nowrap">
+      <div className="absolute bottom-[14%] sm:bottom-[16%] lg:bottom-[18%] left-0 w-full z-10 md:z-30 overflow-hidden pointer-events-none select-none whitespace-nowrap">
         <div className={`flex items-center gap-[clamp(16px,2.5vw,48px)] w-max ${shouldReduceMotion ? '' : 'animate-marquee-left'}`}>
           {[...row2Items, ...row2Items].map((text, idx) => (
             <span 

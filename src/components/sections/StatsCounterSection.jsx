@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
 import { Cpu, CheckCircle2, TrendingUp, Users } from 'lucide-react'
 
 export default function StatsCounterSection() {

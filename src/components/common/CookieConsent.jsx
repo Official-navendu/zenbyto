@@ -34,7 +34,7 @@ export default function CookieConsent() {
       }
       // First visit: show consent banner
       setIsVisible(true)
-    } catch (err) {
+    } catch {
       setIsVisible(true)
     }
   }, [])

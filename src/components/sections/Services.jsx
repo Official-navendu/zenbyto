@@ -7,13 +7,13 @@ import {
 } from 'lucide-react'
 
 // Import 7 unique approved Homepage visual assets from assets/homepage
-import imageSeo from '../../assets/homepage/seo-link-building.webp'
-import imageAds from '../../assets/homepage/googleads-metaads.webp'
-import imageWebdev from '../../assets/homepage/webite-development.webp'
-import imageAppdev from '../../assets/homepage/app-development.webp'
-import imageContent from '../../assets/homepage/content-email-marketing.webp'
-import imageBrand from '../../assets/homepage/brand-managment.webp'
-import imageSocial from '../../assets/homepage/social-media-marketing.webp'
+import imageSeo from '../../assets/seo.png'
+import imageAds from '../../assets/ads.png'
+import imageWebdev from '../../assets/web.png'
+import imageAppdev from '../../assets/app.png'
+import imageContent from '../../assets/content.png'
+import imageBrand from '../../assets/brand.png'
+import imageSocial from '../../assets/smm.png'
 
 const services = [
   {
@@ -216,10 +216,10 @@ export default function Services() {
                   transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                   className={`w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] lg:h-[70vh] lg:max-h-[620px] rounded-[24px] ${service.cardBg} ${service.textColor} shadow-[0_20px_60px_-15px_rgba(20,24,70,0.08)] border ${service.cardBorder} p-5 sm:p-10 lg:p-12 flex flex-col justify-between overflow-hidden relative transition-all duration-500`}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full w-full">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch h-full w-full">
                     
-                    {/* LEFT COLUMN (~55%): Service Info, Title, Highlights, CTA Button */}
-                    <div className="lg:col-span-7 flex flex-col justify-between h-full text-left space-y-5">
+                    {/* LEFT COLUMN (50%): Service Info, Title, Highlights, CTA Button */}
+                    <div className="lg:col-span-6 flex flex-col justify-between h-full text-left space-y-5">
                       
                       {/* Top Header Block */}
                       <div className="space-y-2.5">
@@ -236,12 +236,12 @@ export default function Services() {
                         </p>
                       </div>
 
-                      {/* Feature Highlights Pills */}
-                      <div className="flex flex-wrap gap-2 pt-1">
+                      {/* Feature Highlights Pills (Vertical Stack) */}
+                      <div className="flex flex-col items-start gap-2.5 pt-1">
                         {service.highlights.map((item, hIdx) => (
                           <div
                             key={hIdx}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${service.tagBg}`}
+                            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border ${service.tagBg}`}
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                             <span>{item}</span>
@@ -262,9 +262,9 @@ export default function Services() {
 
                     </div>
 
-                    {/* RIGHT COLUMN (~45%): Large Image Stage */}
-                    <div className="lg:col-span-5 h-[240px] sm:h-[300px] lg:h-full w-full relative">
-                      <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-slate-900/10 relative">
+                    {/* RIGHT COLUMN (50%): Full Image Stage */}
+                    <div className="lg:col-span-6 h-[260px] sm:h-[320px] lg:h-full w-full relative">
+                      <div className="w-full h-full relative overflow-hidden">
                         <motion.img
                           initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 35 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -272,7 +272,7 @@ export default function Services() {
                           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                           src={service.image}
                           alt={service.title}
-                          className="w-full h-full object-cover object-center rounded-2xl"
+                          className="w-full h-full object-contain object-center rounded-none border-none shadow-none outline-none block"
                           loading="eager"
                         />
                       </div>

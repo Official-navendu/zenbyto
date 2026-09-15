@@ -10,8 +10,6 @@ import {
   ShieldCheck,
   Zap,
   Layers,
-  Cpu,
-  TrendingUp,
   ChevronRight
 } from 'lucide-react'
 
@@ -20,7 +18,6 @@ import InternalHero from '../components/layout/InternalHero'
 import Footer from '../components/layout/Footer'
 import PageWrapper from '../components/layout/PageWrapper'
 import Process from '../components/sections/Process'
-import WhyChooseUs from '../components/sections/WhyChooseUs'
 
 import { industriesData } from '../data/industriesData'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Settings, ShieldCheck, Mail } from 'lucide-react'
+import { Settings, Mail } from 'lucide-react'
 import Header from '../components/layout/Header'
 import InternalHero from '../components/layout/InternalHero'
 import Footer from '../components/layout/Footer'

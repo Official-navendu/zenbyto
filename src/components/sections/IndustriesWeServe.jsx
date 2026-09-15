@@ -19,14 +19,16 @@ import {
 import ShapeGrid from '../ui/ShapeGrid'
 
 // Authentic Homepage Image Assets for Card Hover Reveal
-import serviceWebdev from '../../assets/homepage/webite-development.webp'
-import serviceAppdev from '../../assets/homepage/app-development.webp'
-import serviceSeo from '../../assets/homepage/seo-link-building.webp'
-import serviceAds from '../../assets/homepage/googleads-metaads.webp'
-import serviceBrand from '../../assets/homepage/brand-managment.webp'
-import serviceSocial from '../../assets/homepage/social-media-marketing.webp'
-import serviceContent from '../../assets/homepage/content-email-marketing.webp'
-import whyWeExistVisual from '../../assets/homepage/why_we_exist_visual.png'
+import indImg11 from '../../assets/industry/11.avif'
+import indImg12 from '../../assets/industry/12.avif'
+import indImg13 from '../../assets/industry/13.avif'
+import indImg14 from '../../assets/industry/14.avif'
+import indImg15 from '../../assets/industry/15.avif'
+import indImg16 from '../../assets/industry/16.avif'
+import indImg17 from '../../assets/industry/17.avif'
+import indImg18 from '../../assets/industry/18.avif'
+import indImg19 from '../../assets/industry/19.avif'
+import indImg20 from '../../assets/industry/20.avif'
 
 export default function IndustriesWeServe() {
   const shouldReduceMotion = useReducedMotion()
@@ -37,70 +39,70 @@ export default function IndustriesWeServe() {
       title: 'Software & Technology',
       desc: 'Scalable digital products and technology solutions.',
       icon: <Code2 className="w-5 h-5" />,
-      image: serviceWebdev,
+      image: indImg11,
     },
     {
       id: 'real-estate',
       title: 'Real Estate',
       desc: 'Digital experiences built for modern property businesses.',
       icon: <Building2 className="w-5 h-5" />,
-      image: serviceAds,
+      image: indImg12,
     },
     {
       id: 'travel',
       title: 'Travel & Hospitality',
       desc: 'Connected experiences that elevate travel and hospitality brands.',
       icon: <Plane className="w-5 h-5" />,
-      image: serviceSocial,
+      image: indImg13,
     },
     {
       id: 'entertainment',
       title: 'Entertainment',
       desc: 'Digital experiences designed to engage modern audiences.',
       icon: <Clapperboard className="w-5 h-5" />,
-      image: serviceContent,
+      image: indImg14,
     },
     {
       id: 'fintech',
       title: 'FinTech',
       desc: 'Secure, performance-focused digital solutions for financial brands.',
       icon: <Landmark className="w-5 h-5" />,
-      image: serviceSeo,
+      image: indImg15,
     },
     {
       id: 'healthcare',
       title: 'Healthcare',
       desc: 'User-focused digital solutions for healthcare organizations.',
       icon: <HeartPulse className="w-5 h-5" />,
-      image: serviceBrand,
+      image: indImg16,
     },
     {
       id: 'ecommerce',
       title: 'E-commerce & Logistics',
       desc: 'Conversion-driven commerce and connected logistics experiences.',
       icon: <ShoppingCart className="w-5 h-5" />,
-      image: serviceAppdev,
+      image: indImg17,
     },
     {
       id: 'legal',
       title: 'Attorneys & Law Firms',
       desc: 'Professional digital experiences built for legal practices.',
       icon: <Scale className="w-5 h-5" />,
-      image: whyWeExistVisual,
+      image: indImg18,
     },
     {
       id: 'education',
       title: 'Education',
       desc: 'Engaging digital platforms for modern learning organizations.',
       icon: <GraduationCap className="w-5 h-5" />,
-      image: serviceWebdev,
+      image: indImg19,
     },
     {
       id: 'cannabis',
       title: 'Cannabis',
       desc: 'Compliant, conversion-focused digital experiences for cannabis brands.',
       icon: <Leaf className="w-5 h-5" />,
-      image: serviceSocial,
+      image: indImg20,
     }
   ]
 

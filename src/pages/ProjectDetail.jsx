@@ -72,7 +72,7 @@ import navexmJpg from '../assets/portfolio/navexm_exchange.jpg'
 import navexmPerformanceWebp from '../assets/portfolio/navexm_performance.webp'
 import navexmPerformanceJpg from '../assets/portfolio/navexm_performance.jpg'
 
-export const projectsData = {
+const projectsData = {
   'nexzen-extracts': {
     id: 1,
     slug: 'nexzen-extracts',

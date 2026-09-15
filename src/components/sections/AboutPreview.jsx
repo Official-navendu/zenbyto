@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence, useScroll, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, ChevronDown, Rocket, TrendingUp, Cpu, BarChart3, CheckCircle2 } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Rocket, CheckCircle2 } from 'lucide-react'
 import { TechnologyCapsuleSlider } from './TrustedTechnologies'
-import whyWeExistVisual from '../../assets/homepage/why_we_exist_visual.png'
-import serviceWebdev from '../../assets/homepage/webite-development.webp'
-import serviceAppdev from '../../assets/homepage/app-development.webp'
-import serviceSeo from '../../assets/homepage/seo-link-building.webp'
+import whyWeExistVisual from '../../assets/about1.png'
+import serviceWebdev from '../../assets/about2.png'
 
 // Absolute Story Scenes Dataset (2 States)
 const SCENES = [
@@ -65,8 +63,6 @@ export default function AboutPreview() {
     return () => unsubscribe()
   }, [scrollYProgress, shouldReduceMotion])
 
-  const activeScene = SCENES[sceneIndex]
-
   return (
     <section
       ref={sectionRef}
@@ -86,9 +82,9 @@ export default function AboutPreview() {
             
             {/* LEFT COLUMN: Fixed Visual Stage Viewport (52% Width - Rigid Container Height) */}
             <div className="col-span-6 w-full relative h-[min(74vh,650px)]">
-              <div className="w-full h-full rounded-[32px] overflow-hidden bg-slate-900 shadow-[0_24px_60px_-15px_rgba(51,56,122,0.12)] border border-slate-200/80 relative">
+              <div className="w-full h-full rounded-[32px] overflow-hidden relative">
                 
-                {/* ABSOLUTE IMAGE SCENE LAYERS (Zero Resizing, Pure Crossfade) */}
+                {/* ABSOLUTE IMAGE SCENE LAYERS (Clean Image - No Border, No Overlays) */}
                 {SCENES.map((scene, i) => (
                   <motion.div
                     key={`left-img-${scene.id}`}
@@ -103,49 +99,11 @@ export default function AboutPreview() {
                     <img
                       src={scene.leftImg}
                       alt={scene.rightTitle}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center rounded-[32px]"
                       loading="eager"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
                   </motion.div>
                 ))}
-
-                {/* ABSOLUTE INTEGRATED CONTENT PANEL OVERLAY */}
-                <AnimatePresence mode="wait">
-                  {activeScene.showLeftPanel && (
-                    <motion.div
-                      key={`left-panel-${activeScene.id}`}
-                      initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -15, scale: 0.96 }}
-                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                      className={`absolute bottom-6 left-6 right-6 p-6 rounded-[24px] border backdrop-blur-md shadow-xl z-20 ${activeScene.leftPanelBg}`}
-                    >
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase ${activeScene.leftPanelBadge}`}>
-                          {activeScene.leftPanelBadge}
-                        </span>
-                        <span className="font-mono text-xs font-bold opacity-80">
-                          SCENE {activeScene.num}
-                        </span>
-                      </div>
-
-                      <h4 className="text-lg xl:text-xl font-bold tracking-tight mb-1">
-                        {activeScene.leftPanelTitle}
-                      </h4>
-
-                      <p className="text-xs xl:text-sm font-normal opacity-90 leading-relaxed">
-                        {activeScene.leftPanelDesc}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {/* Top Badge Indicator */}
-                <div className="absolute top-5 left-5 z-20 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 text-[#33387A] text-xs font-bold tracking-wider uppercase border border-white/80 shadow-md backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-[#FE8233] animate-pulse" />
-                  <span>STORY CANVAS {activeScene.num} / 02</span>
-                </div>
 
               </div>
             </div>
@@ -252,12 +210,8 @@ export default function AboutPreview() {
 
             return (
               <div key={scene.id} className="space-y-4 pt-4 border-t border-slate-100">
-                <div className="w-full h-[240px] sm:h-[320px] rounded-[24px] overflow-hidden shadow-md relative bg-slate-900 border border-slate-200">
-                  <img src={scene.leftImg} alt={scene.rightTitle} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 text-[#33387A] text-[10px] font-bold uppercase tracking-wider">
-                    SCENE {scene.num}
-                  </div>
+                <div className="w-full h-[240px] sm:h-[320px] rounded-[24px] overflow-hidden relative">
+                  <img src={scene.leftImg} alt={scene.rightTitle} className="w-full h-full object-cover rounded-[24px]" />
                 </div>
 
                 <div className={`p-5 rounded-[20px] border ${scene.leftPanelBg}`}>

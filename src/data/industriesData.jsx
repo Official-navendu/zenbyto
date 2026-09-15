@@ -5,7 +5,6 @@ import serviceSeoImg from '../assets/services/service_seo.jpg'
 import serviceAdsImg from '../assets/services/service_ads.jpg'
 import serviceBrandImg from '../assets/services/service_brand.jpg'
 import serviceContentImg from '../assets/services/service_content.jpg'
-import serviceAiImg from '../assets/illustrations/ai_automation.jpg'
 import serviceSocialImg from '../assets/influencer_marketing.jpg'
 
 export const industriesData = {

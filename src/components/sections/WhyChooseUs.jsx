@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ClientLogoCapsuleSlider } from './OurClients'
 
 // Import asset
-import whyChooseUsImg from '../../assets/homepage/why-choose-us.webp'
+import whyChooseUsImg from '../../assets/why-choose-us.png'
 
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -118,17 +118,16 @@ export default function WhyChooseUs() {
           {/* RIGHT COLUMN: IMAGE / VISUAL (Enters from RIGHT: +100px -> 0px) */}
           <div
             ref={rightRef}
-            className="lg:col-span-6 w-full order-2"
+            className="lg:col-span-6 w-full order-2 flex items-center justify-center"
             style={{ willChange: 'transform, opacity' }}
           >
-            <div className="w-full h-[320px] sm:h-[420px] lg:h-[540px] rounded-[28px] sm:rounded-[32px] overflow-hidden bg-slate-900 shadow-[0_24px_60px_-15px_rgba(51,56,122,0.12)] border border-slate-200/80 relative">
+            <div className="w-full h-[320px] sm:h-[420px] lg:h-[540px] relative flex items-center justify-center overflow-hidden">
               <img
                 src={whyChooseUsImg}
                 alt="Data-Driven Strategy & High-Performance Growth"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-contain object-center rounded-none border-none shadow-none outline-none block"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent pointer-events-none" />
             </div>
           </div>
 

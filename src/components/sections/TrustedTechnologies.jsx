@@ -82,7 +82,7 @@ export function TechSvg({ id, name }) {
 }
 
 // Approved Technology Dataset
-export const TECHNOLOGIES = [
+const TECHNOLOGIES = [
   { id: 'google', name: 'Google Ads & SEO' },
   { id: 'meta', name: 'Meta Ads' },
   { id: 'react', name: 'React' },

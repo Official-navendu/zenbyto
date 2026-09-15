@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { 
-  Sparkles, 
   ArrowUpRight, 
   ArrowRight,
   Star
@@ -9,11 +8,19 @@ import {
 import { Link } from 'react-router-dom'
 
 // Import existing visual showcase assets
-import heroCompositionImg from '../../assets/hero/hero_right_visual_composition.png'
-import webDevImg from '../../assets/homepage/webite-development.webp'
-import appDevImg from '../../assets/homepage/app-development.webp'
-import aviationImg from '../../assets/portfolio/azurafly_aviation.webp'
-import lumenImg from '../../assets/portfolio/lumencloud_tech.webp'
+import heroCompositionImg from '../../assets/hero1.png'
+import webDevImg from '../../assets/hero2.png'
+import appDevImg from '../../assets/hero4.png'
+import aviationImg from '../../assets/hero3.png'
+import lumenImg from '../../assets/hero5.png'
+
+// Approved Rotating Final Line Phrases
+const ROTATING_PHRASES = [
+  'For Enterprise Brands.',
+  'For High-Growth Brands.',
+  'For Ambitious Brands.',
+  'For Modern Enterprises.',
+]
 
 // Real SVG Logos for Platform Social Proof
 function TrustLogo({ id }) {
@@ -66,14 +73,6 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion()
   const sectionRef = useRef(null)
   const galleryStageRef = useRef(null)
-
-  // Approved Rotating Final Line Phrases
-  const ROTATING_PHRASES = [
-    'For Enterprise Brands.',
-    'For High-Growth Brands.',
-    'For Ambitious Brands.',
-    'For Modern Enterprises.',
-  ]
 
   // Hero Initial Stage States
   const [dotVisible, setDotVisible] = useState(false)
