@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { 
@@ -57,10 +57,19 @@ export default function BlogDetail() {
 
   const shareUrl = window.location.href
 
+  const copyTimerRef = useRef(null)
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+    }
+  }, [])
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl)
     setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+    if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+    copyTimerRef.current = setTimeout(() => setCopied(false), 2500)
   }
 
   // Article Schema

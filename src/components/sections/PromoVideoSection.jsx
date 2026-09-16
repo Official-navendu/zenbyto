@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,32 +11,23 @@ export default function PromoVideoSection() {
   const shouldReduceMotion = useReducedMotion()
   const sectionRef = useRef(null)
   const videoWrapperRef = useRef(null)
-  const videoElementRef = useRef(null)
-  const [aspectRatio, setAspectRatio] = useState(null)
+  const videoElementRefDesktop = useRef(null)
+  const videoElementRefMobile = useRef(null)
 
   useEffect(() => {
-    const video = videoElementRef.current
-    if (!video) return
-
-    // Ensure strict browser autoplay policy compliance (Chrome, Safari, iOS mobile)
-    video.muted = true
-    video.playsInline = true
-
-    const playPromise = video.play()
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Fallback for strict browser autoplay restrictions
-      })
+    const playVideo = (video) => {
+      if (!video) return
+      video.muted = true
+      video.playsInline = true
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {})
+      }
     }
+
+    playVideo(videoElementRefDesktop.current)
+    playVideo(videoElementRefMobile.current)
   }, [])
-
-  // Automatically extract native video dimensions on metadata load to prevent layout shift
-  const handleLoadedMetadata = () => {
-    const video = videoElementRef.current
-    if (video && video.videoWidth && video.videoHeight) {
-      setAspectRatio(`${video.videoWidth} / ${video.videoHeight}`)
-    }
-  }
 
   useEffect(() => {
     if (
@@ -47,44 +38,39 @@ export default function PromoVideoSection() {
       return
 
     const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth < 768
-      const initialY = isMobile ? 20 : 35
-      const initialScale = isMobile ? 0.98 : 0.96
-
-      // Initial animation state (Scale never exceeds 1.0 to prevent cropping)
+      // Set initial state for subtle cinematic reveal on desktop
       gsap.set(videoWrapperRef.current, {
-        y: initialY,
-        scale: initialScale,
-        opacity: 0,
+        scale: 1.01,
+        opacity: 0.9,
       })
 
-      // 1:1 Scrubbed ScrollTrigger entrance animation
+      // Smooth scrubbed ScrollTrigger entrance timeline on desktop
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 88%',
-          end: 'center 50%',
-          scrub: 1,
+          start: 'top 85%',
+          end: 'top 20%',
+          scrub: 0.8,
           invalidateOnRefresh: true,
         },
       })
 
       tl.to(videoWrapperRef.current, {
-        y: 0,
         scale: 1,
         opacity: 1,
         ease: 'power2.out',
       })
 
-      // Subtle container parallax scrubbed relative to section scroll
+      // Subtle exit transition as user scrolls past on desktop
       gsap.to(videoWrapperRef.current, {
-        y: isMobile ? -8 : -15,
+        opacity: 0.92,
+        scale: 0.99,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'center bottom',
+          start: 'bottom 85%',
           end: 'bottom top',
-          scrub: 1.2,
+          scrub: 0.8,
           invalidateOnRefresh: true,
         },
       })
@@ -94,46 +80,58 @@ export default function PromoVideoSection() {
   }, [shouldReduceMotion])
 
   return (
-    <section
-      ref={sectionRef}
-      id="promo-video"
-      className="relative w-full select-none overflow-hidden py-8 sm:py-12 lg:py-16"
-    >
-      {/* Subtle Ambient Background Radial Light Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[70%] rounded-full bg-gradient-radial from-[#FE8233]/[0.035] via-[#33387A]/[0.03] to-transparent blur-[140px] pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 xl:px-12 relative z-10 w-full">
-        {/*
-          CRITICAL NO-CROP VIDEO CONTAINER:
-          • Uses object-fit: contain
-          • Width: 100%, Height: auto
-          • Absolutely ZERO cropping of top/bottom or left/right video edges
-          • Scales 100% naturally across all screen sizes (375px to 2560px)
-        */}
+    <>
+      {/* DESKTOP PROMO VIDEO (>= 768px) — EXACTLY UNCHANGED */}
+      <section
+        ref={sectionRef}
+        id="promo-video"
+        className="hidden md:block relative w-full h-[100svh] min-h-[100svh] bg-black select-none overflow-hidden"
+      >
+        {/* FULL-STAGE ABSOLUTE VIDEO CONTAINER */}
         <div
           ref={videoWrapperRef}
-          className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(51,56,122,0.12)] border border-slate-200/80 bg-black/90"
-          style={aspectRatio ? { aspectRatio } : undefined}
+          className="absolute inset-0 w-full h-full overflow-hidden bg-black"
         >
           <video
-            ref={videoElementRef}
+            ref={videoElementRefDesktop}
             autoPlay
             muted
             loop
             playsInline
             preload="metadata"
-            onLoadedMetadata={handleLoadedMetadata}
             aria-label="Zenbyto Promotional Showcase Video"
-            className="w-full h-full object-contain block rounded-2xl sm:rounded-3xl pointer-events-none select-none"
+            className="absolute inset-0 w-full h-full object-cover object-center block pointer-events-none select-none"
           >
             <source src={promoVideo} type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
 
-          {/* Direct 1px subtle edge highlight border overlay */}
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-white/10 pointer-events-none" />
+          {/* Ambient subtle vignette overlay for premium depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* MOBILE PROMO VIDEO (< 768px) — CLEAN FULL-WIDTH STANDALONE NATURAL ASPECT RATIO SECTION */}
+      <section
+        id="promo-video-mobile"
+        className="block md:hidden relative w-full bg-black select-none overflow-hidden"
+      >
+        <div className="w-full relative bg-black overflow-hidden leading-none">
+          <video
+            ref={videoElementRefMobile}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Zenbyto Promotional Showcase Video"
+            className="w-full h-auto block object-contain pointer-events-none select-none"
+          >
+            <source src={promoVideo} type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </section>
+    </>
   )
 }

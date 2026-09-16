@@ -138,15 +138,15 @@ export default function StatsCounterSection() {
     <section
       ref={sectionRef}
       id="stats-counter"
-      className="relative bg-white pt-1 sm:pt-2 pb-2 sm:pb-3 w-full overflow-hidden"
+      className="relative bg-white pt-1 sm:pt-2 pb-1 sm:pb-2 w-full overflow-hidden"
     >
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 relative z-10 w-full">
+      <div className="max-w-[1040px] mx-auto px-4 sm:px-6 relative z-10 w-full">
         {/* Desktop 4 Columns in 1 Single Horizontal Row, Mobile 2x2 Grid (Sitting Directly on Background) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 items-center w-full">
           {stats.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-row items-center gap-3 sm:gap-3.5"
+              className="flex flex-row items-center gap-3 sm:gap-3.5 lg:justify-center"
             >
               {/* Rounded-Square Icon Container */}
               <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${item.iconContainer} flex items-center justify-center shrink-0 shadow-xs`}>

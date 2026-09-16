@@ -30,16 +30,20 @@ function ScrollToHashElement() {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {
+    let timerId
     if (hash) {
       const id = hash.substring(1)
       const el = document.getElementById(id)
       if (el) {
-        setTimeout(() => {
+        timerId = setTimeout(() => {
           el.scrollIntoView({ behavior: 'smooth' })
         }, 150)
       }
     } else {
       window.scrollTo(0, 0)
+    }
+    return () => {
+      if (timerId) clearTimeout(timerId)
     }
   }, [pathname, hash])
 

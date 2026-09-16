@@ -125,7 +125,7 @@ export default function IndustriesWeServe() {
   }
 
   return (
-    <section id="industries" className="py-20 sm:py-24 lg:py-28 bg-[#FBF8F1] bg-atmosphere-grain relative overflow-hidden select-none">
+    <section id="industries" className="py-10 sm:py-14 lg:py-16 bg-[#FBF8F1] bg-atmosphere-grain relative overflow-hidden select-none">
       
       {/* Background ShapeGrid Component */}
       {!shouldReduceMotion && (
@@ -143,7 +143,7 @@ export default function IndustriesWeServe() {
       {/* Background Lights */}
       <div className="absolute top-[20%] left-[-10%] w-[30%] h-[30%] rounded-full bg-[#FE8233]/3 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 relative z-10 space-y-12">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 relative z-10 space-y-8 sm:space-y-10">
         
         {/* NORMALIZED SECTION HEADER MATCHING INTERNAL PAGES */}
         <div className="text-center max-w-[700px] mx-auto space-y-4">

@@ -78,8 +78,9 @@ export default function Home() {
         <Services />
         <PromoVideoSection />
         <WhyChooseUs />
+         <IndustriesWeServe />
         <PortfolioPreview />
-        <IndustriesWeServe />
+       
         <Process />
         <ClientStories />
         <FaqTestimonials />

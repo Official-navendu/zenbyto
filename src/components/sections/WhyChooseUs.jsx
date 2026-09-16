@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
     <section
       ref={sectionRef}
       id="why-us"
-      className="relative bg-white bg-atmosphere-grain w-full select-none py-16 sm:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-white bg-atmosphere-grain w-full select-none py-10 sm:py-14 lg:py-16 overflow-hidden"
     >
       {/* Background Radial Light Glows */}
       <div className="absolute top-[25%] left-[-5%] w-[45%] h-[45%] rounded-full bg-gradient-radial from-[#FE8233]/[0.04] to-transparent blur-[140px] pointer-events-none" />

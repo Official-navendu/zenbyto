@@ -69,9 +69,6 @@ export default function PortfolioPreview() {
     },
   ]
 
-  const featuredProject = projects[0]
-  const secondaryProjects = projects.slice(1)
-
   const handlePortfolioScroll = () => {
     if (!portfolioScrollRef.current) return
     const { scrollLeft, clientWidth } = portfolioScrollRef.current
@@ -100,12 +97,12 @@ export default function PortfolioPreview() {
   }
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white bg-atmosphere-grain relative overflow-hidden select-none">
+    <section id="portfolio" className="py-10 sm:py-14 lg:py-16 bg-white bg-atmosphere-grain relative overflow-hidden select-none">
       
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         
         {/* NORMALIZED SECTION HEADER MATCHING HOMEPAGE DESIGN SYSTEM */}
-        <div className="text-center max-w-[700px] mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-12 lg:mb-16">
+        <div className="text-center max-w-[700px] mx-auto space-y-3 sm:space-y-4 mb-6 sm:mb-8 lg:mb-10">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -224,133 +221,37 @@ export default function PortfolioPreview() {
           </div>
         </div>
 
-        {/* DESKTOP & TABLET LAYOUT (100% INTENDED & UNTOUCHED FOR >= 768px) */}
-        <div className="hidden md:block">
-          {/* 2. FEATURED LARGE PROJECT CARD (FULL-WIDTH ON DESKTOP - ZENBYTO NAVY #33387A SHELL) */}
+        {/* DESKTOP & TABLET LAYOUT: EXACTLY 3 CARDS IN ONE HORIZONTAL ROW (>= 768px) */}
+        <div className="hidden md:block mb-6 sm:mb-8 lg:mb-10">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-8 sm:mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
-            <motion.div
-              variants={cardVariants}
-              className="group relative rounded-[20px] sm:rounded-[24px] lg:rounded-[28px] bg-[#33387A] text-white border border-white/10 shadow-xl lg:shadow-2xl overflow-hidden text-left"
-            >
-              {/* Top Header Bar: Project Name (Left) + Service Tags (Right) */}
-              <div className="p-4 sm:p-6 lg:p-7 flex flex-col xs:flex-row xs:items-center justify-between gap-2.5 sm:gap-4 border-b border-white/15 bg-[#33387A]">
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FE8233] shrink-0" />
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight group-hover:text-[#FE8233] transition-colors duration-300">
-                    {featuredProject.title}
-                  </h3>
-                </div>
-
-                {/* Service Category Pills */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#FE8233]/20 text-[#FE8233] text-[10px] sm:text-xs font-semibold border border-[#FE8233]/30">
-                    {featuredProject.industry}
-                  </span>
-                  {featuredProject.technologies.map((tech, idx) => (
-                    <span key={idx} className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 text-white/90 text-[10px] sm:text-xs font-medium border border-white/15">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Cinematic Large Image Area */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-[360px] md:h-[420px] lg:h-[480px] overflow-hidden bg-slate-950">
-                <picture>
-                  <source media="(min-width: 1024px)" srcSet={featuredProject.image.desktop} type="image/webp" />
-                  <source media="(min-width: 768px)" srcSet={featuredProject.image.tablet} type="image/webp" />
-                  <img
-                    src={featuredProject.image.webp}
-                    alt={`${featuredProject.title} Web Application`}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                    loading="eager"
-                  />
-                </picture>
-
-                {/* Browser Address Bar Overlay */}
-                <div className="absolute top-2.5 sm:top-4 left-3 right-3 sm:left-4 sm:right-4 max-w-[260px] sm:max-w-[320px] mx-auto px-2.5 sm:px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-[9px] sm:text-[10px] text-slate-300 font-mono truncate text-center flex items-center justify-center gap-1.5 z-10 pointer-events-none">
-                  <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
-                  <span className="opacity-90">https://www.{featuredProject.url}</span>
-                </div>
-
-                {/* Desktop Hover Overlay (Translucent Backdrop Blur + Project Description + View Project Button) */}
-                <div className="hidden lg:flex absolute inset-0 bg-slate-950/80 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out flex-col justify-center items-center text-center p-10 z-20 space-y-5">
-                  <span className="px-3.5 py-1 rounded-full bg-[#FE8233]/20 text-[#FE8233] text-xs font-extrabold tracking-widest uppercase border border-[#FE8233]/30">
-                    CASE STUDY OVERVIEW
-                  </span>
-                  
-                  <p className="text-base xl:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    {featuredProject.shortDescription}
-                  </p>
-
-                  <div className="pt-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-75">
-                    <Link
-                      to={featuredProject.link}
-                      className="px-8 py-3.5 rounded-full bg-[#FE8233] hover:bg-white hover:text-[#33387A] text-white text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-2xl inline-flex items-center gap-2 cursor-pointer border border-white/20"
-                    >
-                      <span>View Project</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile / Tablet Direct Information Block */}
-              <div className="lg:hidden p-4 sm:p-6 bg-[#33387A] border-t border-white/10 space-y-2.5 sm:space-y-3">
-                <p className="text-xs sm:text-sm text-white/85 font-normal leading-relaxed">
-                  {featuredProject.shortDescription}
-                </p>
-                
-                <div className="pt-0.5">
-                  <Link
-                    to={featuredProject.link}
-                    className="px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-[#FE8233] text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>View Project</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-
-            </motion.div>
-          </motion.div>
-
-          {/* 3. SECONDARY PROJECTS GRID (2 EQUAL-WIDTH COLUMNS ON DESKTOP - ZENBYTO NAVY #33387A SHELL) */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-8 sm:mb-12 lg:mb-16"
-          >
-            {secondaryProjects.map((project) => (
+            {projects.map((project) => (
               <motion.div
-                key={project.title}
+                key={project.slug}
                 variants={cardVariants}
-                className="group relative rounded-[18px] sm:rounded-[22px] lg:rounded-[24px] bg-[#33387A] text-white border border-white/10 shadow-lg lg:shadow-xl overflow-hidden text-left flex flex-col justify-between"
+                className="group relative rounded-[20px] sm:rounded-[22px] lg:rounded-[24px] bg-[#33387A] text-white border border-white/10 shadow-lg lg:shadow-xl overflow-hidden text-left flex flex-col justify-between transition-all duration-300 hover:shadow-2xl"
               >
                 {/* Top Header Bar: Project Name + Category Pill */}
-                <div className="p-4 sm:p-5 lg:p-6 flex flex-col xs:flex-row xs:items-center justify-between gap-2 sm:gap-3 border-b border-white/15 bg-[#33387A]">
-                  <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/15 bg-[#33387A]">
+                  <div className="flex items-center gap-2 min-w-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FE8233] shrink-0" />
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight group-hover:text-[#FE8233] transition-colors duration-300">
+                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-[#FE8233] transition-colors duration-300 truncate">
                       {project.title}
                     </h3>
                   </div>
 
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#FE8233]/20 text-[#FE8233] text-[10px] sm:text-xs font-semibold border border-[#FE8233]/30 w-fit">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#FE8233]/20 text-[#FE8233] text-[10px] sm:text-xs font-semibold border border-[#FE8233]/30 w-fit shrink-0">
                     {project.industry}
                   </span>
                 </div>
 
                 {/* Image Area */}
-                <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-[280px] lg:h-[320px] overflow-hidden bg-slate-950">
+                <div className="relative w-full aspect-[16/10] sm:h-[260px] lg:h-[280px] xl:h-[300px] overflow-hidden bg-slate-950">
                   <picture>
                     <source media="(min-width: 1024px)" srcSet={project.image.desktop} type="image/webp" />
                     <source media="(min-width: 768px)" srcSet={project.image.tablet} type="image/webp" />
@@ -363,21 +264,25 @@ export default function PortfolioPreview() {
                   </picture>
 
                   {/* Address Bar */}
-                  <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-3 sm:left-3 sm:right-3 max-w-[200px] sm:max-w-[240px] mx-auto px-2 sm:px-2.5 py-0.5 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-[9px] sm:text-[9.5px] text-slate-300 font-mono truncate text-center flex items-center justify-center gap-1 z-10 pointer-events-none">
+                  <div className="absolute top-2.5 left-2.5 right-2.5 max-w-[210px] mx-auto px-2.5 py-0.5 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-[9px] text-slate-300 font-mono truncate text-center flex items-center justify-center gap-1 z-10 pointer-events-none">
                     <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
                     <span className="opacity-90">https://www.{project.url}</span>
                   </div>
 
                   {/* Desktop Hover Overlay */}
-                  <div className="hidden lg:flex absolute inset-0 bg-slate-950/80 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out flex-col justify-center items-center text-center p-8 z-20 space-y-4">
-                    <p className="text-sm xl:text-base text-slate-200 font-normal leading-relaxed max-w-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                  <div className="hidden lg:flex absolute inset-0 bg-slate-950/85 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out flex-col justify-center items-center text-center p-6 z-20 space-y-3.5">
+                    <span className="px-3 py-0.5 rounded-full bg-[#FE8233]/20 text-[#FE8233] text-[10px] font-extrabold tracking-widest uppercase border border-[#FE8233]/30">
+                      CASE STUDY OVERVIEW
+                    </span>
+
+                    <p className="text-xs xl:text-sm text-slate-200 font-normal leading-relaxed max-w-xs transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       {project.shortDescription}
                     </p>
 
-                    <div className="pt-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-75">
+                    <div className="pt-1 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-75">
                       <Link
                         to={project.link}
-                        className="px-7 py-3 rounded-full bg-[#FE8233] hover:bg-white hover:text-[#33387A] text-white text-xs font-bold transition-all duration-300 shadow-md hover:shadow-xl inline-flex items-center gap-2 cursor-pointer border border-white/20"
+                        className="px-6 py-2.5 rounded-full bg-[#FE8233] hover:bg-white hover:text-[#33387A] text-white text-xs font-bold transition-all duration-300 shadow-md hover:shadow-xl inline-flex items-center gap-2 cursor-pointer border border-white/20"
                       >
                         <span>View Project</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -387,18 +292,18 @@ export default function PortfolioPreview() {
                 </div>
 
                 {/* Mobile / Tablet Information Block */}
-                <div className="lg:hidden p-4 sm:p-5 bg-[#33387A] border-t border-white/10 space-y-2.5 sm:space-y-3">
-                  <p className="text-xs text-white/80 font-normal leading-relaxed">
+                <div className="lg:hidden p-4 bg-[#33387A] border-t border-white/10 space-y-2.5 flex-1 flex flex-col justify-between">
+                  <p className="text-xs text-white/85 font-normal leading-relaxed">
                     {project.shortDescription}
                   </p>
 
-                  <div className="pt-0.5">
+                  <div className="pt-1">
                     <Link
                       to={project.link}
                       className="px-5 py-2 rounded-full bg-[#FE8233] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
                     >
                       <span>View Project</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
@@ -408,7 +313,7 @@ export default function PortfolioPreview() {
           </motion.div>
         </div>
 
-        {/* 4. VIEW ALL PROJECTS CTA BUTTON */}
+        {/* VIEW ALL PROJECTS CTA BUTTON */}
         <div className="text-center">
           <Link
             to="/portfolio"
@@ -423,3 +328,4 @@ export default function PortfolioPreview() {
     </section>
   )
 }
+

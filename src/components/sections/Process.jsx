@@ -138,7 +138,7 @@ export default function Process() {
   }
 
   return (
-    <section id="process" className="py-16 sm:py-20 lg:py-24 bg-white bg-atmosphere-grain relative overflow-hidden select-none">
+    <section id="process" className="py-10 sm:py-14 lg:py-16 bg-white bg-atmosphere-grain relative overflow-hidden select-none">
       
       {/* Hide Scrollbars Utility */}
       <style>{`
@@ -154,7 +154,7 @@ export default function Process() {
       {/* Subtle Ambient Radial Accent Glows */}
       <div className="absolute top-[25%] left-[50%] -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-gradient-radial from-[#FE8233]/[0.03] via-[#33387A]/[0.02] to-transparent blur-[140px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 relative z-10 space-y-12 sm:space-y-16">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 relative z-10 space-y-8 sm:space-y-10">
         
         {/* NORMALIZED SECTION HEADER */}
         <div className="text-center max-w-[700px] mx-auto space-y-3">

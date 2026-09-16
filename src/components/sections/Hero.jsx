@@ -27,41 +27,41 @@ function TrustLogo({ id }) {
   switch (id) {
     case 'clutch':
       return (
-        <span className="font-extrabold tracking-tight text-[#111111] text-lg sm:text-xl font-serif italic">
+        <span className="font-extrabold tracking-tight text-[#111111] text-sm xs:text-base sm:text-xl font-serif italic whitespace-nowrap">
           Clutch<span className="text-[#FE8233] not-italic">.</span>
         </span>
       )
     case 'google':
       return (
-        <div className="flex items-center gap-1.5 text-slate-800">
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
+        <div className="flex items-center gap-1 xs:gap-1.5 text-slate-800 whitespace-nowrap">
+          <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" />
             <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.15C3.26 21.3 7.31 24 12 24z" />
             <path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.61H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.39l3.99-3.15z" />
             <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.61l3.99 3.15c.95-2.85 3.6-4.96 6.72-4.96z" />
           </svg>
-          <span className="font-bold text-sm sm:text-base text-[#111111] tracking-tight">Google</span>
+          <span className="font-bold text-xs xs:text-sm sm:text-base text-[#111111] tracking-tight">Google</span>
         </div>
       )
     case 'meta':
       return (
-        <div className="flex items-center gap-1.5 text-slate-800">
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none">
+        <div className="flex items-center gap-1 xs:gap-1.5 text-slate-800 whitespace-nowrap">
+          <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none">
             <path d="M16.5 6C14.2 6 12.8 7.4 12 8.5C11.2 7.4 9.8 6 7.5 6C4.5 6 2 8.5 2 12C2 15.5 4.5 18 7.5 18C9.8 18 11.2 16.6 12 15.5C12.8 16.6 14.2 18 16.5 18C19.5 18 22 15.5 22 12C22 8.5 19.5 6 16.5 6ZM7.5 16C5.6 16 4 14.2 4 12C4 9.8 5.6 8 7.5 8C9.2 8 10.5 9.2 11.2 10.4C10.5 14.2 8.8 16 7.5 16ZM16.5 16C15.2 16 13.5 14.2 12.8 10.4C13.5 9.2 14.8 8 16.5 8C18.4 8 20 9.8 20 12C20 14.2 18.4 16 16.5 16Z" fill="#0668E1" />
           </svg>
-          <span className="font-bold text-sm sm:text-base text-[#111111] tracking-tight">Meta</span>
+          <span className="font-bold text-xs xs:text-sm sm:text-base text-[#111111] tracking-tight">Meta</span>
         </div>
       )
     case 'microsoft':
       return (
-        <div className="flex items-center gap-1.5 text-slate-800">
-          <div className="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
+        <div className="flex items-center gap-1 xs:gap-1.5 text-slate-800 whitespace-nowrap">
+          <div className="grid grid-cols-2 gap-0.5 w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0">
             <div className="bg-[#F25022] w-full h-full" />
             <div className="bg-[#7FBA00] w-full h-full" />
             <div className="bg-[#00A4EF] w-full h-full" />
             <div className="bg-[#FFB900] w-full h-full" />
           </div>
-          <span className="font-bold text-sm sm:text-base text-[#111111] tracking-tight">Microsoft</span>
+          <span className="font-bold text-xs xs:text-sm sm:text-base text-[#111111] tracking-tight">Microsoft</span>
         </div>
       )
     default:
@@ -170,7 +170,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative overflow-hidden flex flex-col justify-center pt-[105px] sm:pt-[115px] lg:pt-[125px] pb-8 lg:pb-12 w-full select-none isolation-auto"
+      className="relative overflow-hidden flex flex-col justify-center pt-[85px] sm:pt-[110px] lg:pt-[120px] pb-5 sm:pb-8 lg:pb-10 w-full select-none isolation-auto"
     >
       {/* CONTINUOUSLY ANIMATED LIGHT GRADIENT (WHITE -> SOFT PEACH -> ZENBYTO ORANGE) */}
       {!shouldReduceMotion ? (
@@ -210,20 +210,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="inline-flex mb-4 sm:mb-5"
+          className="inline-flex mb-3 sm:mb-5"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase rounded-full bg-white/90 text-[#33387A] border border-white/80 shadow-2xs">
+          <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase rounded-full bg-white/90 text-[#33387A] border border-white/80 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#FE8233] animate-pulse" />
             DIGITAL GROWTH PARTNER
           </span>
         </motion.div>
 
-        {/* 2. Main Headline (EXACTLY 2 LINES ON DESKTOP: Line 1 "We Engineer Growth Systems", Line 2 "For Ambitious Brands.") */}
+        {/* 2. Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="hero-heading-wrapper relative w-full max-w-[1150px] mx-auto flex flex-col items-center justify-center text-center min-h-[95px] sm:min-h-[120px] md:min-h-[145px] lg:min-h-[165px]"
+          className="hero-heading-wrapper relative w-full max-w-[1150px] mx-auto flex flex-col items-center justify-center text-center min-h-[90px] sm:min-h-[120px] md:min-h-[145px] lg:min-h-[165px]"
         >
           {!shouldReduceMotion && !typingStarted && (
             <motion.div
@@ -235,26 +235,47 @@ export default function Hero() {
           )}
 
           {(typingStarted || shouldReduceMotion) && (
-            <h1 className="text-[30px] sm:text-[44px] md:text-[54px] lg:text-[clamp(50px,4.5vw,66px)] font-semibold text-[#111111] tracking-tight leading-[0.98] lg:leading-[1.02] text-center">
-              {/* Line 1: We Engineer Growth Systems */}
-              <span className="block md:whitespace-nowrap">
-                We Engineer <span className="text-[#33387A]">Growth Systems</span>
-              </span>
-              
-              {/* Line 2: Rotating Phrase + Attached Blinking Orange Cursor */}
-              <div className="rotating-text-wrapper relative w-full flex items-center justify-center overflow-visible mt-0.5 sm:mt-1">
-                <span className="inline-block md:whitespace-nowrap text-[24px] xs:text-[32px] sm:text-[40px] md:text-[48px] lg:text-[clamp(44px,4.1vw,60px)] text-[#111111] font-semibold">
+            <>
+              {/* DESKTOP & TABLET HEADLINE (>= 640px / sm:block) — UNCHANGED */}
+              <h1 className="hidden sm:block text-[44px] md:text-[54px] lg:text-[clamp(50px,4.5vw,66px)] font-semibold text-[#111111] tracking-tight leading-[0.98] lg:leading-[1.02] text-center">
+                <span className="block md:whitespace-nowrap">
+                  We Engineer <span className="text-[#33387A]">Growth Systems</span>
+                </span>
+                
+                <div className="rotating-text-wrapper relative w-full flex items-center justify-center overflow-visible mt-0.5 sm:mt-1">
+                  <span className="inline-block md:whitespace-nowrap text-[40px] md:text-[48px] lg:text-[clamp(44px,4.1vw,60px)] text-[#111111] font-semibold">
+                    {displayedLine2}
+                    {!shouldReduceMotion && (
+                      <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: 0.7, repeat: Infinity }}
+                        className="inline-block w-[3px] sm:w-[4px] h-[0.82em] bg-[#FE8233] ml-1.5 align-baseline pointer-events-none"
+                      />
+                    )}
+                  </span>
+                </div>
+              </h1>
+
+              {/* MOBILE HEADLINE (< 640px / sm:hidden) — STRICT 3-LINE VISUAL STRUCTURE */}
+              <h1 className="sm:hidden text-[28px] xs:text-[32px] font-semibold text-[#111111] tracking-tight leading-[1.08] text-center space-y-0.5">
+                <span className="block whitespace-nowrap">
+                  We Engineer
+                </span>
+                <span className="block whitespace-nowrap text-[#33387A]">
+                  Growth Systems
+                </span>
+                <span className="block text-[21px] xs:text-[24px] font-semibold text-[#111111] pt-0.5">
                   {displayedLine2}
                   {!shouldReduceMotion && (
                     <motion.span
                       animate={{ opacity: [1, 0, 1] }}
                       transition={{ duration: 0.7, repeat: Infinity }}
-                      className="inline-block w-[3px] sm:w-[4px] h-[0.82em] bg-[#FE8233] ml-1.5 align-baseline pointer-events-none"
+                      className="inline-block w-[3px] h-[0.8em] bg-[#FE8233] ml-1 align-baseline pointer-events-none"
                     />
                   )}
                 </span>
-              </div>
-            </h1>
+              </h1>
+            </>
           )}
         </motion.div>
 
@@ -266,7 +287,7 @@ export default function Hero() {
             y: (initialComplete || shouldReduceMotion) ? 0 : 12,
           }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-base sm:text-lg lg:text-[19px] text-[#1E293B] leading-relaxed max-w-[760px] mx-auto text-center font-normal mt-4 sm:mt-5"
+          className="text-sm sm:text-lg lg:text-[19px] text-[#1E293B] leading-relaxed max-w-[760px] mx-auto text-center font-normal mt-3 sm:mt-5"
         >
           We design custom-engineered, data-driven customer acquisition systems that scale revenue and maximize efficiency for enterprise brands.
         </motion.p>
@@ -279,7 +300,7 @@ export default function Hero() {
             y: (initialComplete || shouldReduceMotion) ? 0 : 12,
           }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-5 mt-7 sm:mt-8 w-full max-w-md mx-auto"
+          className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-5 mt-5 sm:mt-8 w-full max-w-md mx-auto"
         >
           <Link
             to="/free-consultation"
@@ -306,10 +327,10 @@ export default function Hero() {
             y: (initialComplete || shouldReduceMotion) ? 0 : 12,
           }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-8 sm:mt-10 flex flex-col items-center justify-center space-y-3 pt-4 border-t border-slate-900/10 w-full max-w-xl mx-auto"
+          className="mt-6 sm:mt-10 flex flex-col items-center justify-center space-y-2.5 sm:space-y-3 pt-3.5 sm:pt-4 border-t border-slate-900/10 w-full max-w-xl mx-auto"
         >
           {/* Rating Badge */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-slate-800">
             <span>Based On 250+ Growth Systems</span>
             <div className="flex items-center text-[#FE8233]">
               <Star className="w-3.5 h-3.5 fill-[#FE8233]" />
@@ -320,8 +341,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* SVG Logos Row */}
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 opacity-90 hover:opacity-100 transition-opacity pt-1">
+          {/* SVG Logos Row: Single Horizontal Line on Mobile */}
+          <div className="flex flex-nowrap items-center justify-center gap-3.5 xs:gap-5 sm:gap-10 opacity-90 hover:opacity-100 transition-opacity pt-1 w-full overflow-hidden">
             <TrustLogo id="clutch" />
             <TrustLogo id="google" />
             <TrustLogo id="meta" />
@@ -329,8 +350,8 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* 6. SCROLL-DRIVEN MORPHING GALLERY STAGE (COMPACT STRIP -> ASYMMETRIC BENTO WALL) */}
-        <div ref={galleryStageRef} className="mt-12 sm:mt-16 w-full max-w-[1400px] mx-auto pt-2">
+        {/* 6. SCROLL-DRIVEN MORPHING GALLERY STAGE */}
+        <div ref={galleryStageRef} className="mt-6 sm:mt-12 w-full max-w-[1400px] mx-auto pt-1 sm:pt-2">
           
           {/* Desktop & Laptop Scroll-Linked 5-Column Bento Morphing Stage */}
           <div className="hidden lg:flex items-center justify-center gap-2.5 xl:gap-3.5 w-full min-h-[600px] items-stretch">
@@ -436,16 +457,16 @@ export default function Hero() {
 
           </div>
 
-          {/* Mobile & Tablet Responsive Layout (< 1024px) */}
-          <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-3.5 w-full">
-            <div className="rounded-xl overflow-hidden h-[180px] sm:h-[220px] shadow-md border border-white/60">
-              <img src={heroCompositionImg} alt="Growth Systems" className="w-full h-full object-cover" />
+          {/* Mobile & Tablet Responsive Layout (< 1024px) — Row 1: 2 Images, Row 2: 1 Full-Width Image */}
+          <div className="lg:hidden grid grid-cols-2 gap-2.5 sm:gap-3.5 w-full">
+            <div className="rounded-xl overflow-hidden h-[120px] xs:h-[145px] sm:h-[200px] shadow-md border border-white/60 bg-slate-900/10">
+              <img src={heroCompositionImg} alt="Growth Systems" className="w-full h-full object-cover object-center" />
             </div>
-            <div className="rounded-xl overflow-hidden h-[180px] sm:h-[220px] shadow-md border border-white/60">
-              <img src={webDevImg} alt="Web Dev" className="w-full h-full object-cover" />
+            <div className="rounded-xl overflow-hidden h-[120px] xs:h-[145px] sm:h-[200px] shadow-md border border-white/60 bg-slate-900/10">
+              <img src={webDevImg} alt="Web Dev" className="w-full h-full object-cover object-center" />
             </div>
-            <div className="col-span-2 sm:col-span-1 rounded-xl overflow-hidden h-[180px] sm:h-[220px] shadow-md border border-white/60">
-              <img src={aviationImg} alt="Aviation Platform" className="w-full h-full object-cover" />
+            <div className="col-span-2 rounded-xl overflow-hidden h-[120px] xs:h-[145px] sm:h-[200px] shadow-md border border-white/60 bg-slate-900/10">
+              <img src={aviationImg} alt="Aviation Platform" className="w-full h-full object-cover object-center" />
             </div>
           </div>
 

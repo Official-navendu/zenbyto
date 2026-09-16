@@ -10,8 +10,6 @@ export default function Footer() {
   const containerRef = useRef(null)
   const shouldReduceMotion = useReducedMotion()
 
-  const [newsletterEmail, setNewsletterEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
 
   const industriesCol1 = industriesList.slice(0, 5)
@@ -63,14 +61,6 @@ export default function Footer() {
     { name: 'Disclaimer', href: '/disclaimer' },
   ]
 
-  const handleSubscribe = (e) => {
-    e.preventDefault()
-    if (newsletterEmail.trim()) {
-      setSubscribed(true)
-      setNewsletterEmail('')
-    }
-  }
-
   return (
     <footer
       ref={containerRef}
@@ -92,7 +82,7 @@ export default function Footer() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 xl:gap-8 pb-10 border-b border-white/10">
           
-          {/* Column 1: Brand, Description, Newsletter, Socials, Contacts */}
+          {/* Column 1: Brand, Socials, Contacts, Trustpilot */}
           <div className="flex flex-col space-y-5 text-left">
             <Link to="/" className="flex items-center">
               <img
@@ -101,34 +91,6 @@ export default function Footer() {
                 className="h-12 md:h-[48px] w-auto object-contain transition-transform hover:scale-[1.01]"
               />
             </Link>
-            
-            {/* Newsletter embedded inside Column 1 */}
-            <div className="space-y-2 pt-1">
-              <p className="text-[11px] font-bold text-white/40 uppercase tracking-wider">Join Newsletter</p>
-              {subscribed ? (
-                <div className="text-[11.5px] font-semibold text-accent bg-white/5 border border-white/10 px-3 py-2 rounded-xl text-center">
-                  Subscribed successfully!
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex w-full items-center max-w-sm relative">
-                  <input
-                    type="email"
-                    placeholder="Business email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs text-white placeholder-white/40 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all pr-12"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-3 rounded-full bg-[#33387A]/80 hover:bg-[#FE8233]/85 border border-white/10 text-white transition-colors duration-300 flex items-center justify-center cursor-pointer"
-                    aria-label="Subscribe"
-                  >
-                    <ArrowUpRight className="w-3 h-3" />
-                  </button>
-                </form>
-              )}
-            </div>
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3.5 pt-1">
@@ -208,7 +170,7 @@ export default function Footer() {
               <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === 'company' ? 'rotate-180 text-accent' : 'text-white/40'}`} />
             </button>
 
-            {/* Desktop Links (Always visible) */}
+            {/* Desktop Links */}
             <ul className="hidden md:block space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.name}>
@@ -350,7 +312,7 @@ export default function Footer() {
             </AnimatePresence>
           </div>
 
-          {/* Column 5: Industries (5 items | 5 items layout) */}
+          {/* Column 5: Industries */}
           <div className="flex flex-col text-left border-b md:border-b-0 border-white/10 pb-4 md:pb-0">
             <h3 className="hidden md:block font-bold text-xs uppercase tracking-widest text-white/40 mb-4">
               Industries
@@ -393,7 +355,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Mobile 5 | 5 Collapsible Content */}
+            {/* Mobile Collapsible Content */}
             <AnimatePresence>
               {openDropdown === 'industries' && (
                 <motion.div

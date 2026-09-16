@@ -81,7 +81,7 @@ export default function ClientStories() {
   return (
     <section
       id="client-stories"
-      className="py-16 sm:py-24 lg:py-28 bg-white bg-atmosphere-grain w-full flex justify-center select-none"
+      className="py-10 sm:py-14 lg:py-16 bg-white bg-atmosphere-grain w-full flex justify-center select-none"
     >
       {/* Keyframe Animation for True Seamless Vertical Auto-Loop */}
       <style>{`
@@ -102,7 +102,7 @@ export default function ClientStories() {
       `}</style>
 
       {/* Editorial Premium Dark Navy Outer Container (#33387A) */}
-      <div className="max-w-[1400px] w-full mx-4 sm:mx-6 lg:mx-10 rounded-[24px] sm:rounded-[36px] bg-[#33387A] text-white p-6 sm:p-12 lg:p-16 xl:p-20 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(20,24,70,0.25)] border border-white/10 flex flex-col justify-center">
+      <div className="max-w-[1400px] w-full mx-4 sm:mx-6 lg:mx-10 rounded-[24px] sm:rounded-[36px] bg-[#33387A] text-white p-6 sm:p-10 lg:p-12 xl:p-14 relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(20,24,70,0.25)] border border-white/10 flex flex-col justify-center">
         
         {/* 1px Material Top Edge Highlight */}
         <div className="absolute top-0 inset-x-[8%] h-[1px] bg-white/20 pointer-events-none" />
